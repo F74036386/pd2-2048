@@ -97,7 +97,7 @@ void game::up(){
                           number[j+k][i]=0;
                               movelab(j+k,i,j,i);
                               flag++;
-                              j++;
+                              j--;
 
 
                         break;
@@ -142,7 +142,7 @@ void game:: down(){
                           number[j-k][i]=0;
                               movelab(j-k,i,j,i);
                               flag++;
-                              j--;
+                              j++;
 
 
                         break;
@@ -251,7 +251,7 @@ void game::labcombine(int yfrom,int xfrom,int yterget,int xterget,int num){
    //lab[yterget][xterget]->setGeometry(100+xterget*110,150+yterget*110,100,100);
    lab[yfrom][xfrom]->setGeometry(100+xfrom*110+k*(xterget-xfrom),150+yfrom*110+k*(yterget-yfrom),100,100);
        lab[yfrom][xfrom]->show();
-       sleep(1);
+       sleep(2);
 }
     delete lab[yfrom][xfrom];
    delete lab[yterget][xterget];
@@ -271,7 +271,7 @@ void game::movelab(int yfrom,int xfrom,int yterget,int xterget){
     //lab[yterget][xterget]->setGeometry(100+xterget*110,150+yterget*110,100,100);
     lab[yterget][xterget]->setGeometry(100+xfrom*110+k*(xterget-xfrom),150+yfrom*110+k*(yterget-yfrom),100,100);
         lab[yterget][xterget]->show();
-        sleep(1);
+        sleep(2);
 }
 
     lab[yfrom][xfrom]=new QLabel(this);
@@ -433,7 +433,7 @@ void game::newlab(int a,int b,int num){
 void game:: newnum(){
     if(isfill())return;
     srand((unsigned)time(NULL)+rand());
-    sleep(100);
+    sleep(300);
     int a=rand()%4;
     int b=rand()%4;
     int c=rand()%2+1;
