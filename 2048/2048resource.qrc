@@ -1,0 +1,23 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>2048  pit/2.png</file>
+        <file>2048  pit/4.png</file>
+        <file>2048  pit/8.png</file>
+        <file>2048  pit/16.png</file>
+        <file>2048  pit/32.png</file>
+        <file>2048  pit/64.png</file>
+        <file>2048  pit/128.png</file>
+        <file>2048  pit/256.png</file>
+        <file>2048  pit/512.png</file>
+        <file>2048  pit/1024.png</file>
+        <file>2048  pit/2048.png</file>
+        <file>2048  pit/4096.png</file>
+        <file>2048  pit/8192.png</file>
+        <file>2048  pit/16384.png</file>
+        <file>2048  pit/WIN.png</file>
+        <file>2048  pit/0.png</file>
+        <file>2048  pit/GAMEOVER.png</file>
+        <file>2048  pit/2048logo.png</file>
+        <file>2048  pit/x.png</file>
+    </qresource>
+</RCC>
