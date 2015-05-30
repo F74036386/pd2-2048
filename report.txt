@@ -14,3 +14,7 @@ and counterclockwise rotate.
 3. 
   the animation
 
+4. the X block can not combine
+
+5. use a file I/O to control the best score for every time; 
+

@@ -40,7 +40,7 @@ game::~game()
     delete gameover;
 }
 
-void game::keyPressEvent(QKeyEvent* event){
+void game::keyPressEvent(QKeyEvent* event){    //to know the key press
 if(isgameover()){
     if(gameover==NULL){
 gameover=new QLabel(this);
@@ -89,7 +89,7 @@ sleep(300);
 }
 
 
-void game::up(){
+void game::up(){   // to move up
     int flag=0;
     for(int i=0;i<4;i++){
         for(int j=0;j<3;j++){
@@ -133,7 +133,7 @@ void game::up(){
 
 }
 
-void game:: down(){
+void game:: down(){  //to move down
     int flag=0;
     for(int i=0;i<4;i++){
         for(int j=3;j>0;j--){
@@ -177,7 +177,7 @@ void game:: down(){
 
 
 }
-void game:: left(){
+void game:: left(){// to move left
     int flag=0;
     for(int i=0;i<4;i++){
         for(int j=0;j<3;j++){
@@ -222,7 +222,7 @@ void game:: left(){
 
 }
 
-void game:: right(){
+void game:: right(){          // move right
     int flag=0;
     for(int i=0;i<4;i++){
         for(int j=3;j>0;j--){
@@ -264,7 +264,7 @@ void game:: right(){
 
 
 }
-void game::labcombine(int yfrom,int xfrom,int yterget,int xterget,int num){
+void game::labcombine(int yfrom,int xfrom,int yterget,int xterget,int num){     // to combin the label
 
    for(int k=1;k<=110;k++){
    //lab[yterget][xterget]->setGeometry(100+xterget*110,150+yterget*110,100,100);
@@ -283,7 +283,7 @@ void game::labcombine(int yfrom,int xfrom,int yterget,int xterget,int num){
 
 }
 
-void game::movelab(int yfrom,int xfrom,int yterget,int xterget){
+void game::movelab(int yfrom,int xfrom,int yterget,int xterget){     //to move the labels
     delete lab[yterget][xterget];
     lab[yterget][xterget]=lab[yfrom][xfrom];
     for(int k=1;k<=110;k++){
@@ -300,7 +300,7 @@ void game::movelab(int yfrom,int xfrom,int yterget,int xterget){
    lab[yfrom][xfrom]->show();
 }
 
-bool game::isfill(){
+bool game::isfill(){            // to know the block is fill or not
    int a=0;
    for(int i=0;i<4;i++){
        for(int j=0;j<4;j++){
@@ -313,7 +313,7 @@ bool game::isfill(){
 }
 
 
-bool game::isgameover(){
+bool game::isgameover(){           //to know is gameover or not
     if(!isfill())return 0;
     int flag=0;
     for(int i=0;i<4;i++){
@@ -342,7 +342,7 @@ bool game::isgameover(){
     if(flag==0)return 1;
     else return 0;
 }
-void game::newlab(int a,int b,int num){
+void game::newlab(int a,int b,int num){     // use to new a label which have the pixmap need to use
     lab[a][b]=new QLabel(this);
     switch(num){
     case 0:{
@@ -449,7 +449,7 @@ void game::newlab(int a,int b,int num){
     }
 }
 
-void game:: newnum(){
+void game:: newnum(){      //use to make new number block
     if(isfill())return;
     srand((unsigned)time(NULL)+rand());
 
@@ -480,14 +480,14 @@ void game:: newnum(){
 
 }
 
-void game:: scorechange(int num){
+void game:: scorechange(int num){   // use to change the score
     score+=num;
     ui->lcdNumber->display(score);
     checkbest();
 
 }
 
-void game:: restartgame(){
+void game:: restartgame(){          // use to restart game
     if(gameover!=NULL){
         gameover->close();
         delete gameover;
@@ -514,22 +514,22 @@ void game:: restartgame(){
 }
 
 
-void game::output(){
+/*void game::output(){                   //used to debug
     for(int i=0;i<4;i++){
         for(int j=0;j<4;j++)
             printf("%d ",number[i][j]);
         printf("\n");
     }
     printf("\n");
-}
+}*/
 
-void game::sleep(unsigned int msec)
+void game::sleep(unsigned int msec)       // use to  delay the time
 {
     QTime dieTime = QTime::currentTime().addMSecs(msec);
     while( QTime::currentTime() < dieTime )
         QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
 }
-void game::xswitch(){
+void game::xswitch(){            //  to switch the X block
     if(xsw==0){
         if(isfill())return;
         srand((unsigned)time(NULL)+rand());
@@ -575,7 +575,7 @@ void game::xswitch(){
 
 }
 
-void game::clockwise(){
+void game::clockwise(){          // to move the block for clockwise rotate
     for(int a=0;a<4;a++){
         for(int b=0;b<4;b++){
             temnumber[a][b]=number[a][b];
@@ -605,7 +605,7 @@ void game::clockwise(){
 
 }
 
-void game::counterclockwise(){
+void game::counterclockwise(){      // to move the block for counterclockwise rotate
     for(int a=0;a<4;a++){
         for(int b=0;b<4;b++){
             temnumber[a][b]=number[a][b];
@@ -635,7 +635,7 @@ void game::counterclockwise(){
 
 }
 
-  void game:: checkbest(){
+  void game:: checkbest(){            //  use open file to check best score
       ifstream fin;
       fin.open("best.txt", ios::in);
 
@@ -661,7 +661,7 @@ void game::counterclockwise(){
            ui->lcdNumber_2->display(best);
           ofstream fout;
           fout.open("best.txt",ios::out);
-          if(!fin){
+          if(!fout){
               ui->lcdNumber_2->display(-999);
               return;
           }

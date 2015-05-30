@@ -40,7 +40,7 @@ public:
     void labcombine(int,int,int ,int,int);
     void keyPressEvent(QKeyEvent* );
     void newlab(int ,int,int);
-    void output();
+
     void clockwise();
     void counterclockwise();
     void checkbest();
