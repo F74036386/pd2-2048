@@ -662,7 +662,7 @@ void game::counterclockwise(){      // to move the block for counterclockwise ro
           ofstream fout;
           fout.open("best.txt",ios::out);
           if(!fout){
-              ui->lcdNumber_2->display(-999);
+              ui->lcdNumber_2->display(best);
               return;
           }
           fout<<best;
