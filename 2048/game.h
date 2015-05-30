@@ -13,12 +13,13 @@
 #include<QKeyEvent>
 #include<cstdio>
 #include<cmath>
+#include<fstream>
 
 
 namespace Ui {
 class game;
 }
-
+using namespace std;
 class game : public QMainWindow
 {
     Q_OBJECT
@@ -42,6 +43,7 @@ public:
     void output();
     void clockwise();
     void counterclockwise();
+    void checkbest();
 
 private slots:
     void restartgame();
@@ -57,6 +59,7 @@ private:
     int xsw;
     int temnumber[4][4];
     QLabel *temlab[4][4];
+    int best;
 
 };
 

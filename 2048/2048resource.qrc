@@ -19,5 +19,6 @@
         <file>2048  pit/GAMEOVER.png</file>
         <file>2048  pit/2048logo.png</file>
         <file>2048  pit/x.png</file>
+        <file>best.txt</file>
     </qresource>
 </RCC>

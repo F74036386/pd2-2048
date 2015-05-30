@@ -24,6 +24,8 @@ connect(ui->pushButton,SIGNAL(clicked()),this,SLOT(restartgame()));
 connect(ui->pushButton_2,SIGNAL(clicked()),this,SLOT(xswitch()));
 gameover=NULL;
 xsw=0;
+best=0;
+checkbest();
 restartgame();
 
 }
@@ -481,6 +483,7 @@ void game:: newnum(){
 void game:: scorechange(int num){
     score+=num;
     ui->lcdNumber->display(score);
+    checkbest();
 
 }
 
@@ -492,6 +495,7 @@ void game:: restartgame(){
     }
     score=0;
     ok=0;
+    xsw=0;
     ui->lcdNumber->display(score);
     for(int i=0;i<4;i++){
       for(int j=0;j<4;j++){
@@ -529,7 +533,7 @@ void game::xswitch(){
     if(xsw==0){
         if(isfill())return;
         srand((unsigned)time(NULL)+rand());
-        sleep(300);
+        sleep(100);
         int a=rand()%4;
         int b=rand()%4;
         while(number[a][b]!=0){
@@ -630,3 +634,43 @@ void game::counterclockwise(){
       }
 
 }
+
+  void game:: checkbest(){
+      ifstream fin;
+      fin.open("best.txt", ios::in);
+
+      if(!fin){
+          best=score;
+           ui->lcdNumber_2->display(best);
+            fin.close();
+           ofstream fout;
+           fout.open("best.txt",ios::out);
+           if(!fin){
+               return;
+           }
+           fout<<best;
+           fout.close();
+
+      }
+      else{
+      fin>>best;
+      fin.close();
+
+      if(score>best){
+          best=score;
+           ui->lcdNumber_2->display(best);
+          ofstream fout;
+          fout.open("best.txt",ios::out);
+          if(!fin){
+              ui->lcdNumber_2->display(-999);
+              return;
+          }
+          fout<<best;
+          fout.close();
+      }
+
+         ui->lcdNumber_2->display(best);
+   }
+
+
+  }

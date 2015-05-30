@@ -1,0 +1,16 @@
+student id:F74036386
+name: ªL©÷¿«
+project2 2048
+
+feature:
+1. use  up down left and right key to control the block
+ if the same block collision,then then they will combine to biger 
+number block.
+
+2.
+ press the key z and x can control the  block clockwise 
+and counterclockwise rotate. 
+
+3. 
+  the animation
+
