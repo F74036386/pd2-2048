@@ -645,7 +645,7 @@ void game::counterclockwise(){      // to move the block for counterclockwise ro
             fin.close();
            ofstream fout;
            fout.open("best.txt",ios::out);
-           if(!fin){
+           if(!fout){
                return;
            }
            fout<<best;
