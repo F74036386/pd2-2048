@@ -61,6 +61,8 @@ private:
     QLabel *temlab[4][4];
     int best;
 
+
+
 };
 
 #endif // GAME_H
