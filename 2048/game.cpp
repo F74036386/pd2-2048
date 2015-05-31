@@ -613,7 +613,7 @@ void game::counterclockwise(){      // to move the block for counterclockwise ro
         }
     }
     for(double n=0;n>-12;n--){
-           int k=(0.5)*(n*0.1)* M_PI;
+          double k=(0.5)*(n*0.1)* M_PI;
         for(int a=0;a<4;a++){
             for(int b=0;b<4;b++){
                 double xway=(110*b-155)*cos((double)k)-(110*a-90)*sin((double) k)+255;
